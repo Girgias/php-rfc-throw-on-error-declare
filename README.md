@@ -94,9 +94,9 @@ For example, the following exception is caught:
 declare(throw_on_error=1);
 ini_set("error_reporting", 0);
 try {
-  file_get_contents('not_found.txt');
+    file_get_contents('not_found.txt');
 } catch(ErrorException $e) {
-  echo "Caught exception";
+    echo "Caught exception";
 }
 ```
 
@@ -109,11 +109,11 @@ For example, the error suppression operators in the following snippet does not h
 <?php
 declare(throw_on_error=1);
 function doTheThing(){
-  try {
-    $fh = @fopen("not_found.txt", "r");
-  } catch(ErrorException $e) {
-    echo "I have caught an error!";
-  }
+    try {
+        $fh = @fopen("not_found.txt", "r");
+    } catch(ErrorException $e) {
+        echo "I have caught an error!";
+    }
 }
 ```
 
