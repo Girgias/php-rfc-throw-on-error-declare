@@ -117,6 +117,22 @@ function doTheThing(){
 }
 ```
 
+### JSON Extension
+The JSON extension has since PHP 7.3 [2] the following flag ``JSON_THROW_ON_ERROR`` which emits a ``JsonException``
+instead of returning false when a failure arises. The ``throw_on_error`` declare statement would enable this behaviour
+even without the flag.
+
+In other words:
+```php
+declare(throw_on_error=1);
+var_dump(json_decode("{", false, 512));
+```
+and
+```php
+var_dump(json_decode("{", false, 512, JSON_THROW_ON_ERROR));
+```
+would both emit a ``JsonException``.
+
 ## Backward Incompatible Changes
 As ``throw_on_error`` defaults to 0, there are no backward incompatibilities.
 Additionally, using an undefined declare() is an error, thus using ``throw_on_error`` is not a BC break.
@@ -176,3 +192,4 @@ Prototype patch (partially complete): https://github.com/php/php-src/compare/mas
 
 ## References
 [1] https://thecodingmachine.io/introducing-safe-php
+[2] [[rfc:json_throw_on_error||PHP RFC: JSON_THROW_ON_ERROR]]
