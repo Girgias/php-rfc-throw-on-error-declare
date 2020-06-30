@@ -161,21 +161,32 @@ as the declare directive only affect runtime behaviour.
 ## Future Scope
 Potential future improvements (not part of this RFC) include:
 ### Specific exceptions
-If this RFC passes, a following RFC will be submitted proposing adding specific exceptions for each error triggered.
+Various functions, notably I/O ones, have multiple warnings which they can emit. Therefore, specific and dedicated
+exceptions for each of these failure conditions are highly desirable as one may want to deal with one set of Exceptions
+differently than others. For example:
 
 ```php
 <?php
 try {
     $fh = @fopen("not_found.txt", "r");
 } catch(FileNotFoundException $e) {
-  echo 'File not found';
+    echo 'File not found';
+} catch(InvalidPermission $e) {
+    // Log file permission issue
 }
 ```
 
-Adding more specific exceptions can be done in a separate RFC as this will not introduce breaking changes (those more specific exceptions will extend ''ErrorException'' and therefore any catch of ''ErrorException'' will still catch them).
+Adding more specific exceptions can be done in multiple separate RFC and at a later date, as they would extend the
+class ``Exception``/``ErrorException`` and would be backward compatible.
 
-However, there will be a big number of exception classes to add and before adding those classes, a decision will need to be taken regarding the namespace of those exceptions (see: https://wiki.php.net/rfc/namespaces-in-core). Indeed, introducing exceptions (like a ''FileNotFoundException'' which is not a reserved keyword) would certainly introduce conflicts in existing code. The usage of a namespace will probably be needed.
+However, as it is quite likely to have various additional exception classes which target different areas,
+the usage of namespaces would be necessary. Therefore, a reevaluation about PHP's namespace policy [3][4][5] might be needed.
+ there will be a big number of exception classes to add and before adding those classes,
+ a decision will need to be taken regarding the namespace of those exceptions
+ (see: https://wiki.php.net/rfc/namespaces-in-core).
 
+Indeed, introducing exceptions, such as ``FileNotFoundException``, takes the risk of introducing conflicts in
+existing code.
 
 ## Proposed Voting Choices
 Per the Voting RFC, there would be a single Yes/No vote requiring a 2/3 majority.
@@ -192,4 +203,7 @@ Prototype patch (partially complete): https://github.com/php/php-src/compare/mas
 
 ## References
 [1] https://thecodingmachine.io/introducing-safe-php
-[2] [[rfc:json_throw_on_error||PHP RFC: JSON_THROW_ON_ERROR]]
+[2] [[rfc:json_throw_on_error|PHP RFC: JSON_THROW_ON_ERROR]]
+[3] [[rfc:namespaces-in-core|PHP RFC: Namespaces in Core]]
+[4] [[rfc:php-namespace-in-core|PHP RFC: PHP Namespace in core]]
+[5] [[rfc:php_namespace_policy|PHP RFC: PHP Namespace Policy]]
