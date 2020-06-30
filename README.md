@@ -175,4 +175,4 @@ An optional exit poll will be made available to explain a "No" vote:
 Prototype patch (partially complete): https://github.com/php/php-src/compare/master...Girgias:throw-on-error-declare
 
 ## References
-[1]
+[1] https://thecodingmachine.io/introducing-safe-php
