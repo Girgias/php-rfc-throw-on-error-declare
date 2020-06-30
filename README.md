@@ -202,8 +202,8 @@ An optional exit poll will be made available to explain a "No" vote:
 Prototype patch (partially complete): https://github.com/php/php-src/compare/master...Girgias:throw-on-error-declare
 
 ## References
-[1] https://thecodingmachine.io/introducing-safe-php
-[2] [[rfc:json_throw_on_error|PHP RFC: JSON_THROW_ON_ERROR]]
-[3] [[rfc:namespaces-in-core|PHP RFC: Namespaces in Core]]
-[4] [[rfc:php-namespace-in-core|PHP RFC: PHP Namespace in core]]
+[1] https://thecodingmachine.io/introducing-safe-php \
+[2] [[rfc:json_throw_on_error|PHP RFC: JSON_THROW_ON_ERROR]] \
+[3] [[rfc:namespaces-in-core|PHP RFC: Namespaces in Core]] \
+[4] [[rfc:php-namespace-in-core|PHP RFC: PHP Namespace in core]] \
 [5] [[rfc:php_namespace_policy|PHP RFC: PHP Namespace Policy]]
