@@ -89,20 +89,20 @@ And other warnings such as using an undefined variable or arithmetic with string
 When deciding whether to promote an error to an exception, ``throw_on_error`` ignores the ``error_reporting`` INI setting.
 This is done to ensure consistent behaviour across environments.
 
-For example, the following exception is caught:
+For example, the following exception will be caught:
 ```php
 declare(throw_on_error=1);
 ini_set("error_reporting", 0);
 try {
     file_get_contents('not_found.txt');
-} catch(ErrorException $e) {
+} catch(Exception $e) {
     echo "Caught exception";
 }
 ```
 
 ### Interaction with error suppression operator
-As the error suppression operator ``@`` only affects PHP errors, it will have no effect on a promoted ErrorException,
-as it currently has no effect on any exception.
+As the error suppression operator ``@`` only affects PHP errors,
+it would have no effect on a Warning promoted to an exception.
 
 For example, the error suppression operators in the following snippet does not have any effect:
 ```php
@@ -111,7 +111,7 @@ declare(throw_on_error=1);
 function doTheThing(){
     try {
         $fh = @fopen("not_found.txt", "r");
-    } catch(ErrorException $e) {
+    } catch(Exception $e) {
         echo "I have caught an error!";
     }
 }
