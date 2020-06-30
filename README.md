@@ -1,7 +1,7 @@
 # PHP RFC: throw_on_error declare: promote warnings to Exceptions
   * Version: 0.1
   * Date: 2020-06-29
-  * Author: David Négrier, <d.negrier@thecodingmachine.com>, George Peter Banyard, <girgias@php.net>
+  * Author: David Négrier <d.negrier@thecodingmachine.com>, George Peter Banyard <girgias@php.net>
   * Status: Under Discussion
   * First Published at: http://wiki.php.net/rfc/throw_on_error
 
