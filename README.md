@@ -150,9 +150,9 @@ None.
 ### To Opcache
 None.
 
-### Open Issues
+## Open Issues
   * Name of declare directive
-  * Exception type to throw
+  * Exception class to throw (Exception or ErrorException)
 
 ## Unaffected PHP Functionality
 Any error triggered during compile time continues to operate normally,
